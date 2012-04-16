@@ -113,6 +113,29 @@ public:
 	 *
 	 * \verbinclude hamlet.txt
 	 *
+	 * Another example (taken from http://en.wikipedia.org/wiki/Markov_chain)
+	 * is the dietary habits of a creature who eats only grapes, cheese
+	 * or lettuce, and whose dietary habits conform to the following
+	 * rules:
+	 *
+	 * \li It eats exactly once a day.
+	 *
+	 * \li If it ate cheese today, tomorrow it will eat lettuce or
+	 * grapes with equal probability.
+	 *
+	 * \li If it ate grapes today, tomorrow it will eat grapes with
+	 * probability 1/10, cheese with probability 4/10 and lettuce with
+	 * probability 5/10.
+	 *
+	 * \li If it ate lettuce today, it will not eat lettuce again
+	 * tomorrow but will eat grapes with probability 4/10 or cheese with
+	 * probability 6/10.
+	 *
+	 * The above could be modeled in a markov::chain, and when written
+	 * to a file would look like this:
+	 *
+	 * \verbinclude diet.txt
+	 *
 	 * \param s The stream to write to.
 	 */
 	void write(std::ostream& s);

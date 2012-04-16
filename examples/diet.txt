@@ -1,0 +1,3 @@
+cheese : lettuce grapes
+grapes : grapes lettuce lettuce lettuce lettuce cheese cheese cheese cheese cheese
+lettuce : cheese cheese cheese cheese cheese cheese grapes grapes grapes grapes
