@@ -1,0 +1,29 @@
+README for markov
+=================
+Jason J.A. Stephenson <jason@sigio.com>
+
+markov is a c++ library containing a class for a Markov chain text
+generator.
+
+It's public and protected members are fully documented in doc comments
+in the chain.hh file.  You can generate documentation into a doc/
+subfolder by running `doxygen doxygen.cfg` in the main project
+directory.  (TODO: Add doc and doc-install targets in Makefile.am.)
+
+It can be configured and installed using the GNU autotools and the
+configure script.  If you don't find a configure script in the main
+project directory, simply run `autoreconf --install` to create it and
+the other necessary files.  This requirement probably means that you
+acquired the source code via git.
+
+In addition to the standard configure arguments, markov also supports
+a `--with-random=FILE` argument.  This argument allows you to specify
+a device file from which to get pseudo-random digits.  This parameter
+is purely optional, and if not supplied, the configure script will
+look for a suitable device and if not found, will fall back to using
+the standard library's `time()` function.
+
+markov is licensed under the terms of the GNU General Public License
+version 3.0 or, at your option, any later version.  This means that
+you cannot distribute it in non-GPL licensed projects without express
+written consent of the author(s).
