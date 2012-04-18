@@ -180,7 +180,9 @@ chain::prefix chain::randomPrefix() {
 		chain::seed();
 
 	std::size_t i = random() % this->size();
-	for (const_iterator it = this->begin(); it != this->end() && i > 0; ++it, --i)
+	std::size_t j = 0;
+	for (const_iterator it = this->begin(); it != this->end() && j <= i;
+			 it++, j++)
 		pref = it->first;
 
 	return pref;
