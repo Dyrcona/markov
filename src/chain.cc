@@ -30,7 +30,7 @@ namespace markov {
 
 bool chain::is_seeded = false;
 
-std::size_t getSeed(void)
+static std::size_t getSeed(void)
 {
 	std::size_t seed = 0;
 #ifdef HAVE_RANDOM_DEVICE
