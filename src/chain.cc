@@ -59,7 +59,8 @@ void chain::add(std::istream& in, bool resetprefix) {
     this->add(buf);
 }
 
-void chain::generate(std::ostream& s, std::size_t nwords, prefix pref) {
+void chain::generate(std::ostream& s, std::size_t nwords, prefix pref,
+  bool tryhard) {
   if (this->isValidPrefix(pref))
     this->current_prefix = pref;
   else
@@ -83,16 +84,22 @@ void chain::generate(std::ostream& s, std::size_t nwords, prefix pref) {
     pref.push_back(w);
     if (this->isValidPrefix(pref))
       this->current_prefix = pref;
-    else
-      break;
+    else {
+      if (tryhard) {
+        pref = this->randomPrefix();
+        this->current_prefix = pref;
+      }
+      else
+        break;
+    }
   }
 
   s << std::endl;
 }
 
-void chain::generate(std::ostream& s, std::size_t nwords) {
+void chain::generate(std::ostream& s, std::size_t nwords, bool tryhard) {
   prefix start = this->randomPrefix();
-  this->generate(s, nwords, start);
+  this->generate(s, nwords, start, tryhard);
 }
 
 void chain::write(std::ostream& s) {

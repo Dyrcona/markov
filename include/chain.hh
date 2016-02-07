@@ -84,8 +84,11 @@ public:
    * \param s Stream to write the scrambled text to.
    * \param nwords The number of words to write.
    * \param pref The prefix to start at.
+   * \param tryhard If true, pick a random prefix when we reach the
+   * last prefix and we still want output
    */
-  void generate(std::ostream& s, std::size_t nwords, prefix pref);
+  void generate(std::ostream& s, std::size_t nwords, prefix pref,
+    bool tryhard = false);
 
   /*!
    * \brief Generate scrambled text from the chain starting with a
@@ -95,8 +98,10 @@ public:
    *
    * \param s Stream to write the scrambled text to.
    * \param nwords The number of words to write.
+   * \param tryhard If true, pick a random prefix when we reach the
+   * last prefix and we still want output
    */
-  void generate(std::ostream& s, std::size_t nwords);
+  void generate(std::ostream& s, std::size_t nwords, bool tryhard = false);
 
   /*!
    * \brief Output the chain to a stream in a format that can easily
